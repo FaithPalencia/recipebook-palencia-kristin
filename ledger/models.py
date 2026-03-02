@@ -34,3 +34,6 @@ class RecipeIngredient(models.Model):
         on_delete=models.CASCADE,
         related_name='ingredients'
     )
+
+class Profile(models.Model):
+    
