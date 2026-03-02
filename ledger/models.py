@@ -21,7 +21,7 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
-    author = models.foreignKey(
+    author = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
         related_name='recipe')
