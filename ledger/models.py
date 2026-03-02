@@ -8,7 +8,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=50)
     bio = models.TextField(blank=True)
 
-    
+
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
     
@@ -24,7 +24,7 @@ class Recipe(models.Model):
     author = models.foreignKey(
         Profile,
         on_delete=models.CASCADE,
-        related_name='')
+        related_name='reciipe')
 
     def __str__(self):
         return self.name
