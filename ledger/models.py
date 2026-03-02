@@ -24,7 +24,7 @@ class Recipe(models.Model):
     author = models.foreignKey(
         Profile,
         on_delete=models.CASCADE,
-        related_name='reciipe')
+        related_name='recipe')
 
     def __str__(self):
         return self.name
