@@ -36,4 +36,4 @@ class RecipeIngredient(models.Model):
     )
 
 class Profile(models.Model):
-    
+    user = models.OneToOneField(user,on_delete=models.CASCADE)
