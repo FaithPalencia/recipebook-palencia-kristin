@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <h1>Recipe Book</h1>
+    <body>
+        <h1>Recipe Book</h1>
         {% if user.is_authenticated %}
             <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
@@ -11,7 +12,6 @@
         {% endif %}
     <h2>{% block page_title %}{% endblock %}</h2>
     <hr>
-    <body>
-        {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
     </body>
 </html>

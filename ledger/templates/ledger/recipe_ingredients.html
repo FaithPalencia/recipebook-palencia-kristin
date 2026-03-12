@@ -1,8 +1,6 @@
 {% extends 'ledger/base.html' %}
 
-{% block page_title %}
-<h2>{{ recipe.name }}</h2>
-{% endblock %}
+{% block page_title %}{{ recipe.name }}{% endblock %}
 
 {% block content %}
 <p>Author: {{ recipe.author.name }}</p>
