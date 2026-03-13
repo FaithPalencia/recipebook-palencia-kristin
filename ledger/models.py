@@ -3,20 +3,22 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 # Create your models here.
+
+
 class Profile(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     bio = models.TextField(blank=True)
 
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
-    
+
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
-        return reverse('ingredient_detail',args=[self.id])
+        return reverse('ingredient_detail', args=[self.id])
 
 
 class Recipe(models.Model):
@@ -30,7 +32,7 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
         return reverse('recipe_detail', args=[self.id])
 
@@ -48,6 +50,7 @@ class RecipeIngredient(models.Model):
         related_name='ingredients'
     )
 
+
 class RecipeImage(models.Model):
     image = models.ImageField(upload_to='images/', null=False)
     description = models.CharField(max_length=255)
@@ -56,5 +59,6 @@ class RecipeImage(models.Model):
         on_delete=models.CASCADE,
         related_name='images'
     )
+
     def get_absolute_url(self):
         return reverse('recipe_detail', args=[self.recipe.pk])
